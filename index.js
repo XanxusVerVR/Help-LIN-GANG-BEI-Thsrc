@@ -40,7 +40,7 @@ function callback(error, response, body) {
     }
 }
 let rule = new schedule.RecurrenceRule();
-rule.second = [0, 7, 14, 21, 28, 35, 42, 49, 56]; // 每隔 10 秒执行一次
+rule.second = [0, 15, 30, 45, 59]; // 每隔 10 秒执行一次
 function scheduleCronstyle() {
     schedule.scheduleJob(rule, () => {
         request(options, callback);
