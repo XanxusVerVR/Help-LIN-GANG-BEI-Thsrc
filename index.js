@@ -1,13 +1,13 @@
 const request = require("request");
-let http = require("http"); // 1 - 載入 Node.js 原生模組 http
+let http = require("http");
 
-let server = http.createServer(function (req, res) {   // 2 - 建立server
+let server = http.createServer(function (req, res) {
 
     // 在此處理 客戶端向 http server 發送過來的 req。
-    res.status(200).send({
-        statusCode: 200,
-        date: moment().format("YYYY-MM-DD HH:mm:ss")
-    });
+    // res.status(200).send({
+    //     statusCode: 200,
+    //     date: moment().format("YYYY-MM-DD HH:mm:ss")
+    // });
 
     const options = {
         method: "GET",
@@ -33,6 +33,7 @@ let server = http.createServer(function (req, res) {   // 2 - 建立server
         if (!error && response.statusCode == 200) {
             console.log("statusCode:", response && response.statusCode);
             console.log(body);
+            console.log("我在callback裡面");
         }
         else {
             console.log("錯誤");
